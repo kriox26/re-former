@@ -1,0 +1,20 @@
+<!-- Railsy-er forms with #form_for -->
+<%= form_for @user do |f| %>
+  <ul>
+	<% @user.errors.full_messages.each do |error| %>
+	  <li>
+		<%= error %>
+	  </li>
+	<% end %>
+  </ul>
+  <%= f.label :username , "Enter username:" %>
+  <%= f.text_field :username %>
+  <br />
+  <%= f.label :email , "Enter email:" %>
+  <%= f.email_field :email, placeholder: "foo@bar.com" %>
+  <br />
+  <%= f.label :password , "Enter password:" %>
+  <%= f.password_field :password %>
+  <br />
+  <%= f.submit "Update user" %>
+<% end %>
